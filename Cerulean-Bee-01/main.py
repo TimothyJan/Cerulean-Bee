@@ -43,6 +43,52 @@ class Employee_Work_Log(db.Model):
     task = db.Column(db.String(250), nullable=False)
     end_time = db.Column(db.String(250), nullable=False)
 
+class Print_Order(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    customer = db.Column(db.String(250), nullable=False)
+    contact = db.Column(db.String(250), nullable=True)
+    phone = db.Column(db.String(250), nullable=False)
+    email = db.Column(db.String(250), nullable=False)
+
+    setup_charge = db.Column(db.String(250), nullable=False)
+    deposit = db.Column(db.String(250), nullable=False)
+    discount = db.Column(db.String(250), nullable=False)
+    total_cost = db.Column(db.String(250), nullable=False)
+
+    order_date = db.Column(db.String(250), nullable=False)
+    art_slide_date = db.Column(db.String(250), nullable=True)
+    due_date = db.Column(db.String(250), nullable=False)
+
+    apparel_date = db.Column(db.String(250), nullable=False)
+    art_film_date = db.Column(db.String(250), nullable=True)
+    print_date = db.Column(db.String(250), nullable=True)
+    date_delivered = db.Column(db.String(250), nullable=True)
+
+    base_color = db.Column(db.String(250), nullable=False)
+    vendor = db.Column(db.String(250), nullable=False)
+
+    # x_small_number = db.Column(db.Integer, nullable=False)
+    # x_small_add_charge = db.Column(db.String(250), nullable=False)
+    # small_number = db.Column(db.Integer, nullable=False)
+    # small_add_charge = db.Column(db.String(250), nullable=False)
+    # medium_number = db.Column(db.Integer, nullable=False)
+    # medium_add_charge = db.Column(db.String(250), nullable=False)
+    # large_number = db.Column(db.Integer, nullable=False)
+    # large_add_charge = db.Column(db.String(250), nullable=False)
+    # x_large_number = db.Column(db.Integer, nullable=False)
+    # x_large_add_charge = db.Column(db.String(250), nullable=False)
+    # xx_large_number = db.Column(db.Integer, nullable=False)
+    # xx_large_add_charge = db.Column(db.String(250), nullable=False)
+
+    # per_unit_base_price = db.Column(db.String(250), nullable=False)
+    # color_charge = db.Column(db.String(250), nullable=False)
+    # total_blank_price = db.Column(db.String(250), nullable=False)
+
+    # location_size = db.Column(db.String(250), nullable=False)
+    # num_colors_charge = db.Column(db.String(250), nullable=False)
+    # color_list = db.Column(db.String(250), nullable=False)
+    # total = db.Column(db.String(250), nullable=False)
+
 db.create_all()
 
 @app.route('/')
@@ -172,6 +218,79 @@ def delete_employee_work_log():
     db.session.delete(employee_work_log_to_delete)
     db.session.commit()
     return redirect(url_for('employee_work_log_home'))
+
+@app.route('/print_order_home')
+def print_order_home():
+    all_print_orders = db.session.query(Print_Order).all()
+    return render_template('print_order_home.html', all_print_orders=all_print_orders)
+
+@app.route("/add_print_order", methods=["GET", "POST"])
+def add_print_order():
+    if request.method == "POST":
+        new_print_order = Print_Order(
+            customer = request.form["customer"],
+            contact = request.form["contact"],
+            phone = request.form["phone"],
+            email = request.form["email"],
+            setup_charge = request.form["setup_charge"],
+            deposit = request.form["deposit"],
+            discount = request.form["discount"],
+            total_cost = request.form["total_cost"],
+            order_date = request.form["order_date"],
+            art_slide_date = request.form["art_slide_date"],
+            due_date = request.form["due_date"],
+            apparel_date = request.form["apparel_date"],
+            art_film_date = request.form["art_film_date"],
+            print_date = request.form["print_date"],
+            date_delivered = request.form["date_delivered"],
+            base_color = request.form["base_color"],
+            vendor = request.form["vendor"],
+        )
+
+        db.session.add(new_print_order)
+        db.session.commit()
+        return redirect(url_for('print_order_home'))
+    return render_template('add_print_order.html')
+
+@app.route("/edit_print_order", methods=["GET", "POST"])
+def edit_print_order():
+    if request.method == "POST":
+        #UPDATE RECORD
+        print_order_id = request.form["id"]
+        print_order_to_update = Print_Order.query.get(print_order_id)
+        print_order_to_update.customer = request.form["customer"]
+        print_order_to_update.contact = request.form["contact"]
+        print_order_to_update.phone = request.form["phone"]
+        print_order_to_update.email = request.form["email"]
+        print_order_to_update.setup_charge = request.form["setup_charge"]
+        print_order_to_update.deposit = request.form["deposit"]
+        print_order_to_update.discount = request.form["discount"]
+        print_order_to_update.total_cost = request.form["total_cost"]
+        print_order_to_update.order_date = request.form["order_date"]
+        print_order_to_update.art_slide_date = request.form["art_slide_date"]
+        print_order_to_update.due_date = request.form["due_date"]
+        print_order_to_update.apparel_date = request.form["apparel_date"]
+        print_order_to_update.art_film_date = request.form["art_film_date"]
+        print_order_to_update.print_date = request.form["print_date"]
+        print_order_to_update.date_delivered = request.form["date_delivered"]
+        print_order_to_update.base_color = request.form["base_color"]
+        print_order_to_update.vendor = request.form["vendor"]
+
+        db.session.commit()
+        return redirect(url_for('print_order_home'))
+    print_order_id = request.args.get('id')
+    print_order_selected = Print_Order.query.get(print_order_id)
+    return render_template("edit_print_order.html", print_order=print_order_selected)
+
+@app.route("/delete_print_order")
+def delete_print_order():
+    print_order_id = request.args.get('id')
+
+    # DELETE A RECORD BY ID
+    print_order_to_delete = Print_Order.query.get(print_order_id)
+    db.session.delete(print_order_to_delete)
+    db.session.commit()
+    return redirect(url_for('print_order_home'))
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Print Order</title>
+</head>
+<body>
+    <form action="{{ url_for('add_print_order') }}" method="POST">
+        <label>Customer</label>
+        <input type="text" name="customer"><br>
+        <label>Contact</label>
+        <input type="text" name="contact"><br>
+        <label>Phone</label>
+        <input type="text" name="phone"><br>
+        <label>Email</label>
+        <input type="text" name="email"><br>
+        <label>Setup Charge</label>
+        <input type="text" name="setup_charge"><br>
+        <label>Deposit</label>
+        <input type="text" name="deposit"><br>
+        <label>Discount</label>
+        <input type="text" name="discount"><br>
+        <label>Total Cost</label>
+        <input type="text" name="total_cost"><br>
+        <label>Order Date</label>
+        <input type="date" name="order_date"><br>
+        <label>Art/Slide Date</label>
+        <input type="date" name="art_slide_date"><br>
+        <label>Due Date</label>
+        <input type="date" name="due_date"><br>
+        <label>Apparel Date</label>
+        <input type="date" name="apparel_date"><br>
+        <label>Art/Film Date</label>
+        <input type="date" name="art_film_date"><br>
+        <label>Print Date</label>
+        <input type="date" name="print_date"><br>
+        <label>Date Delivered</label>
+        <input type="date" name="date_delivered"><br>
+        <label>Base Color</label>
+        <input type="text" name="base_color"><br>
+        <label>Vendor</label>
+        <input type="text" name="vendor"><br>
+
+        <button type="submit">Add Print Order</button>
+    </form>
+</body>
+</html>
