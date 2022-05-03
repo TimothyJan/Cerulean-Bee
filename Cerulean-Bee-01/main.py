@@ -13,18 +13,18 @@ db = SQLAlchemy(app)
 '''CREATE TABLE'''
 class Artwork_Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    customer = db.Column(db.String(250), nullable=False)
+    customer = db.Column(db.String(250), nullable=True)
     contact = db.Column(db.String(250), nullable=True)
-    phone = db.Column(db.String(250), nullable=False)
+    phone = db.Column(db.String(250), nullable=True)
     discount = db.Column(db.String(250), nullable=True)
-    total_price = db.Column(db.String(250), nullable=False)
+    total_price = db.Column(db.String(250), nullable=True)
 
-    order_date = db.Column(db.String(250), nullable=False)
+    order_date = db.Column(db.String(250), nullable=True)
     date_approved = db.Column(db.String(250), nullable=True)
     scheduled_print_date = db.Column(db.String(250), nullable=True)
 
-    apparel_item = db.Column(db.String(250), nullable=False)
-    base_color = db.Column(db.String(250), nullable=False)
+    apparel_item = db.Column(db.String(250), nullable=True)
+    base_color = db.Column(db.String(250), nullable=True)
     maximum_colors = db.Column(db.Integer, nullable=True)
 
     event = db.Column(db.String(250), nullable=True)
@@ -32,62 +32,62 @@ class Artwork_Order(db.Model):
 
 class Employee_Work_Log(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    employee = db.Column(db.String(250), nullable=False)
+    employee = db.Column(db.String(250), nullable=True)
     phone = db.Column(db.String(250), nullable=True)
-    full_part_time = db.Column(db.String(250), nullable=False)
+    full_part_time = db.Column(db.String(250), nullable=True)
 
-    date = db.Column(db.String(250), nullable=False)
-    start_time = db.Column(db.String(250), nullable=False)
-    project = db.Column(db.String(250), nullable=False)
-    art_item = db.Column(db.String(250), nullable=False)
-    task = db.Column(db.String(250), nullable=False)
-    end_time = db.Column(db.String(250), nullable=False)
+    date = db.Column(db.String(250), nullable=True)
+    start_time = db.Column(db.String(250), nullable=True)
+    project = db.Column(db.String(250), nullable=True)
+    art_item = db.Column(db.String(250), nullable=True)
+    task = db.Column(db.String(250), nullable=True)
+    end_time = db.Column(db.String(250), nullable=True)
 
 class Print_Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    customer = db.Column(db.String(250), nullable=False)
+    customer = db.Column(db.String(250), nullable=True)
     contact = db.Column(db.String(250), nullable=True)
-    phone = db.Column(db.String(250), nullable=False)
-    email = db.Column(db.String(250), nullable=False)
+    phone = db.Column(db.String(250), nullable=True)
+    email = db.Column(db.String(250), nullable=True)
 
-    setup_charge = db.Column(db.String(250), nullable=False)
-    deposit = db.Column(db.String(250), nullable=False)
-    discount = db.Column(db.String(250), nullable=False)
-    total_cost = db.Column(db.String(250), nullable=False)
+    setup_charge = db.Column(db.String(250), nullable=True)
+    deposit = db.Column(db.String(250), nullable=True)
+    discount = db.Column(db.String(250), nullable=True)
+    total_cost = db.Column(db.String(250), nullable=True)
 
-    order_date = db.Column(db.String(250), nullable=False)
+    order_date = db.Column(db.String(250), nullable=True)
     art_slide_date = db.Column(db.String(250), nullable=True)
-    due_date = db.Column(db.String(250), nullable=False)
+    due_date = db.Column(db.String(250), nullable=True)
 
-    apparel_date = db.Column(db.String(250), nullable=False)
+    apparel_date = db.Column(db.String(250), nullable=True)
     art_film_date = db.Column(db.String(250), nullable=True)
     print_date = db.Column(db.String(250), nullable=True)
     date_delivered = db.Column(db.String(250), nullable=True)
 
-    base_color = db.Column(db.String(250), nullable=False)
-    vendor = db.Column(db.String(250), nullable=False)
+    base_color = db.Column(db.String(250), nullable=True)
+    vendor = db.Column(db.String(250), nullable=True)
 
-    # x_small_number = db.Column(db.Integer, nullable=False)
-    # x_small_add_charge = db.Column(db.String(250), nullable=False)
-    # small_number = db.Column(db.Integer, nullable=False)
-    # small_add_charge = db.Column(db.String(250), nullable=False)
-    # medium_number = db.Column(db.Integer, nullable=False)
-    # medium_add_charge = db.Column(db.String(250), nullable=False)
-    # large_number = db.Column(db.Integer, nullable=False)
-    # large_add_charge = db.Column(db.String(250), nullable=False)
-    # x_large_number = db.Column(db.Integer, nullable=False)
-    # x_large_add_charge = db.Column(db.String(250), nullable=False)
-    # xx_large_number = db.Column(db.Integer, nullable=False)
-    # xx_large_add_charge = db.Column(db.String(250), nullable=False)
+    x_small_number = db.Column(db.Integer, nullable=True)
+    x_small_add_charge = db.Column(db.String(250), nullable=True)
+    small_number = db.Column(db.Integer, nullable=True)
+    small_add_charge = db.Column(db.String(250), nullable=True)
+    medium_number = db.Column(db.Integer, nullable=True)
+    medium_add_charge = db.Column(db.String(250), nullable=True)
+    large_number = db.Column(db.Integer, nullable=True)
+    large_add_charge = db.Column(db.String(250), nullable=True)
+    x_large_number = db.Column(db.Integer, nullable=True)
+    x_large_add_charge = db.Column(db.String(250), nullable=True)
+    xx_large_number = db.Column(db.Integer, nullable=True)
+    xx_large_add_charge = db.Column(db.String(250), nullable=True)
 
-    # per_unit_base_price = db.Column(db.String(250), nullable=False)
-    # color_charge = db.Column(db.String(250), nullable=False)
-    # total_blank_price = db.Column(db.String(250), nullable=False)
+    per_unit_base_price = db.Column(db.String(250), nullable=False)
+    color_charge = db.Column(db.String(250), nullable=False)
+    total_blank_price = db.Column(db.String(250), nullable=False)
 
-    # location_size = db.Column(db.String(250), nullable=False)
-    # num_colors_charge = db.Column(db.String(250), nullable=False)
-    # color_list = db.Column(db.String(250), nullable=False)
-    # total = db.Column(db.String(250), nullable=False)
+    location_size = db.Column(db.String(250), nullable=False)
+    num_colors_charge = db.Column(db.String(250), nullable=False)
+    color_list = db.Column(db.String(250), nullable=False)
+    total = db.Column(db.String(250), nullable=False)
 
 db.create_all()
 
@@ -245,6 +245,27 @@ def add_print_order():
             date_delivered = request.form["date_delivered"],
             base_color = request.form["base_color"],
             vendor = request.form["vendor"],
+
+            x_small_number = request.form["x_small_number"],
+            x_small_add_charge = request.form["x_small_add_charge"],
+            small_number = request.form["small_number"],
+            small_add_charge = request.form["small_add_charge"],
+            medium_number = request.form["medium_number"],
+            medium_add_charge = request.form["medium_add_charge"],
+            large_number = request.form["large_number"],
+            large_add_charge = request.form["large_add_charge"],
+            x_large_number = request.form["x_large_number"],
+            x_large_add_charge = request.form["x_large_add_charge"],
+            xx_large_number = request.form["xx_large_number"],
+            xx_large_add_charge = request.form["xx_large_add_charge"],
+
+            per_unit_base_price = request.form["per_unit_base_price"],
+            color_charge = request.form["color_charge"],
+            total_blank_price = request.form["total_blank_price"],
+            location_size = request.form["location_size"],
+            num_colors_charge = request.form["num_colors_charge"],
+            color_list = request.form["color_list"],
+            total = request.form["total"],
         )
 
         db.session.add(new_print_order)
@@ -275,6 +296,27 @@ def edit_print_order():
         print_order_to_update.date_delivered = request.form["date_delivered"]
         print_order_to_update.base_color = request.form["base_color"]
         print_order_to_update.vendor = request.form["vendor"]
+
+        print_order_to_update.x_small_number = request.form["x_small_number"]
+        print_order_to_update.x_small_add_charge = request.form["x_small_add_charge"]
+        print_order_to_update.small_number = request.form["small_number"]
+        print_order_to_update.small_add_charge = request.form["small_add_charge"]
+        print_order_to_update.medium_number = request.form["medium_number"]
+        print_order_to_update.medium_add_charge = request.form["medium_add_charge"]
+        print_order_to_update.large_number = request.form["large_number"]
+        print_order_to_update.large_add_charge = request.form["large_add_charge"]
+        print_order_to_update.x_large_number = request.form["x_large_number"]
+        print_order_to_update.x_large_add_charge = request.form["x_large_add_charge"]
+        print_order_to_update.xx_large_number = request.form["xx_large_number"]
+        print_order_to_update.xx_large_add_charge = request.form["xx_large_add_charge"]
+
+        print_order_to_update.per_unit_base_price = request.form["per_unit_base_price"]
+        print_order_to_update.color_charge = request.form["color_charge"]
+        print_order_to_update.total_blank_price = request.form["total_blank_price"]
+        print_order_to_update.location_size = request.form["location_size"]
+        print_order_to_update.num_colors_charge = request.form["num_colors_charge"]
+        print_order_to_update.color_list = request.form["color_list"]
+        print_order_to_update.total = request.form["total"]
 
         db.session.commit()
         return redirect(url_for('print_order_home'))

@@ -19,7 +19,18 @@
             Setup Charge: {{ print_order.setup_charge }} Deposit: {{ print_order.deposit }} Discount: {{ print_order.discount }} Total Cost: {{ print_order.total_cost }}<br>
             Order Date: {{ print_order.order_date }} Art/Slide Date: {{ print_order.art_slide_date }} Due Date: {{ print_order.due_date }} Apparel Date: {{ print_order.apparel_date }}<br>
             Art/Film Date: {{ print_order.art_film_date }} Print Date: {{ print_order.print_date }} Date Delivered: {{ print_order.date_delivered }}<br>
-            Base Color: {{ print_order.base_color }} Vendor: {{ print_order.vendor }}
+            Base Color: {{ print_order.base_color }} Vendor: {{ print_order.vendor }}<br>
+
+            X-Small: {{ print_order.x_small_number }} X-Small Add. Charge: {{ print_order.x_small_add_charge }}<br>
+            Small: {{ print_order.small_number }} Small Add. Charge: {{ print_order.small_add_charge }}<br>
+            Medium: {{ print_order.medium_number }} Medium Add. Charge: {{ print_order.medium_add_charge }}<br>
+            Large: {{ print_order.large_number }} Large Add. Charge: {{ print_order.large_add_charge }}<br>
+            X-Large: {{ print_order.x_large_number }} X-Large Add. Charge: {{ print_order.x_large_add_charge }}<br>
+            XX-Large: {{ print_order.xx_large_number }} XX-Large Add. Charge: {{ print_order.xx_large_add_charge }}<br>
+
+            Per Unit Base Price: {{ print_order.per_unit_base_price }} Color Charge: {{ print_order.color_charge }} Total Blank Price: {{print_order.total_blank_price}}<br>
+            Location Size: {{ print_order.location_size }} # Colors Charge: {{ print_order.num_colors_charge }} Color List: {{print_order.color_list}} Total: {{print_order.total}}<br>
+
             <a href="{{ url_for('edit_print_order', id=print_order.id) }}">Edit</a>
             <a href="{{ url_for('delete_print_order', id=print_order.id) }}">Delete</a>
         </li>
