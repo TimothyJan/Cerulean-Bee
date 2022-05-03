@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee Work Log</title>
+</head>
+<body>
+     <form action="{{ url_for('edit_employee_work_log') }}" method="POST">
+
+        <input hidden="hidden" name="id" value="{{employee_work_log.id}}">
+
+        <p>Employee: {{employee_work_log.employee}}</p>
+        <input name="employee" type="text" value = {{employee_work_log.employee}}>
+        <p>Phone: {{employee_work_log.phone}}</p>
+        <input name="phone" type="text" value = {{employee_work_log.phone}}>
+        <p>Full/Part Time: {{employee_work_log.full_part_time}}</p>
+        <input name="full_part_time" type="text" value = {{employee_work_log.full_part_time}}>
+        <p>Date: {{employee_work_log.date}}</p>
+        <input name="date" type="date" value = {{employee_work_log.date}}>
+        <p>Start Time: {{employee_work_log.start_time}}</p>
+        <input name="start_time" type="time" value = {{employee_work_log.start_time}}>
+        <p>Project: {{employee_work_log.project}}</p>
+        <input name="project" type="text" value = {{employee_work_log.project}}>
+        <p>Art Item: {{employee_work_log.art_item}}</p>
+        <input name="art_item" type="text" value = {{employee_work_log.art_item}}>
+        <p>Task: {{employee_work_log.task}}</p>
+        <input name="task" type="text" value = {{employee_work_log.task}}>
+        <p>End Time: {{employee_work_log.end_time}}</p>
+        <input name="end_time" type="time" value = {{employee_work_log.end_time}}>
+
+        <br>
+        <button type="submit">Done</button>
+    </form>
+</body>
+</html>
