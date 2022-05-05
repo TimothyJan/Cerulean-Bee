@@ -1,39 +1,60 @@
 <!DOCTYPE html>
+
+{% include "header.html" %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add Artwork Order</title>
 </head>
 <body>
-    <form action="{{ url_for('add_artwork_order') }}" method="POST">
-        <label>Customer</label>
-        <input type="text" name="customer"><br>
-        <label>Contact</label>
-        <input type="text" name="contact"><br>
-        <label>Phone</label>
-        <input type="text" name="phone"><br>
-        <label>Discount</label>
-        <input type="text" name="discount"><br>
-        <label>Total Price</label>
-        <input type="text" name="total_price"><br>
-        <label>Order Date</label>
-        <input type="date" name="order_date"><br>
-        <label>Date Approved</label>
-        <input type="date" name="date_approved"><br>
-        <label>Scheduled Print Date</label>
-        <input type="date" name="scheduled_print_date"><br>
-        <label>Apparel Item</label>
-        <input type="text" name="apparel_item"><br>
-        <label>Base Color</label>
-        <input type="text" name="base_color"><br>
-        <label>Maximum Colors</label>
-        <input type="number" name="maximum_colors" min="1"><br>
-        <label>Event</label>
-        <input type="text" name="event"><br>        
-        <label>Theme</label>
-        <input type="text" name="theme"><br>
 
-        <button type="submit">Add Artwork Order</button>
+    <h1 style="margin:60px 0px 10px 30px">Create New Artwork Order</h1>
+
+    <form action="{{ url_for('add_artwork_order') }}" method="POST">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label>Customer</label>
+                    <input type="text" name="customer"><br>
+                    <label>Contact</label>
+                    <input type="text" name="contact"><br>
+                    <label>Phone</label>
+                    <input type="text" name="phone"><br>
+                    <label>Discount</label>
+                    <input type="text" name="discount"><br>
+                    <label>Total Price</label>
+                    <input type="text" name="total_price"><br>
+                </div>
+                <div class="col">
+                    <label>Order Date</label>
+                    <input type="date" name="order_date"><br>
+                    <label>Date Approved</label>
+                    <input type="date" name="date_approved"><br>
+                    <label>Scheduled Print Date</label>
+                    <input type="date" name="scheduled_print_date"><br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Apparel Item</label>
+                    <input type="text" name="apparel_item"><br>
+                    <label>Base Color</label>
+                    <input type="text" name="base_color"><br>
+                    <label>Maximum Colors</label>
+                    <input type="number" name="maximum_colors" min="1"><br>
+                </div>
+                <div class="col">
+                    <label>Event</label>
+                    <input type="text" name="event"><br>        
+                    <label>Theme</label>
+                    <input type="text" name="theme"><br>
+                </div>
+            </div>
+            <br><button type="submit">Add Artwork Order</button>
+        </div>
     </form>
+
 </body>
 </html>
