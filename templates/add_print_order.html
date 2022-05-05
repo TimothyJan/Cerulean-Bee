@@ -1,87 +1,141 @@
 <!DOCTYPE html>
+
+{% include "header.html" %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add Print Order</title>
 </head>
 <body>
+
+    <h1 style="margin:60px 0px 10px 30px">Create New Print Order</h1>
+
     <form action="{{ url_for('add_print_order') }}" method="POST">
-        <label>Customer</label>
-        <input type="text" name="customer"><br>
-        <label>Contact</label>
-        <input type="text" name="contact"><br>
-        <label>Phone</label>
-        <input type="text" name="phone"><br>
-        <label>Email</label>
-        <input type="text" name="email"><br>
-        <label>Setup Charge</label>
-        <input type="text" name="setup_charge"><br>
-        <label>Deposit</label>
-        <input type="text" name="deposit"><br>
-        <label>Discount</label>
-        <input type="text" name="discount"><br>
-        <label>Total Cost</label>
-        <input type="text" name="total_cost"><br>
-        <label>Order Date</label>
-        <input type="date" name="order_date"><br>
-        <label>Art/Slide Date</label>
-        <input type="date" name="art_slide_date"><br>
-        <label>Due Date</label>
-        <input type="date" name="due_date"><br>
-        <label>Apparel Date</label>
-        <input type="date" name="apparel_date"><br>
-        <label>Art/Film Date</label>
-        <input type="date" name="art_film_date"><br>
-        <label>Print Date</label>
-        <input type="date" name="print_date"><br>
-        <label>Date Delivered</label>
-        <input type="date" name="date_delivered"><br>
-        <label>Base Color</label>
-        <input type="text" name="base_color"><br>
-        <label>Vendor</label>
-        <input type="text" name="vendor"><br>
+              
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label>Customer</label>
+                    <input type="text" name="customer"><br>
+                    <label>Contact</label>
+                    <input type="text" name="contact"><br>
+                    <label>Phone</label>
+                    <input type="text" name="phone"><br>
+                    <label>Email</label>
+                    <input type="text" name="email"><br>
+                    <label>Setup Charge</label>
+                    <input type="text" name="setup_charge"><br>
+                    <label>Deposit</label>
+                    <input type="text" name="deposit"><br>
+                    <label>Discount</label>
+                    <input type="text" name="discount"><br>
+                    <label>Total Cost</label>
+                    <input type="text" name="total_cost"><br>
+                </div>
+                <div class="col">
+                    <label>Order Date</label>
+                    <input type="date" name="order_date"><br>
+                    <label>Art/Slide Date</label>
+                    <input type="date" name="art_slide_date"><br>
+                    <label>Due Date</label>
+                    <input type="date" name="due_date"><br>
+                    <label>Apparel Date</label>
+                    <input type="date" name="apparel_date"><br>
+                    <label>Art/Film Date</label>
+                    <input type="date" name="art_film_date"><br>
+                    <label>Print Date</label>
+                    <input type="date" name="print_date"><br>
+                    <label>Date Delivered</label>
+                    <input type="date" name="date_delivered"><br>
+                </div>
+            </div> <br>
 
-        <label>X-Small Number</label>
-        <input type="number" name="x_small_number" min="0"><br>
-        <label>X-Small Add. Charge</label>
-        <input type="text" name="x_small_add_charge"><br>
-        <label>Small Number</label>
-        <input type="number" name="small_number" min="0"><br>
-        <label>Small Add. Charge</label>
-        <input type="text" name="small_add_charge"><br>
-        <label>Medium Number</label>
-        <input type="number" name="medium_number" min="0"><br>
-        <label>Medium Add. Charge</label>
-        <input type="text" name="medium_add_charge"><br>
-        <label>Large Number</label>
-        <input type="number" name="large_number" min="0"><br>
-        <label>Large Add. Charge</label>
-        <input type="text" name="large_add_charge"><br>
-        <label>X-Large Number</label>
-        <input type="number" name="x_large_number" min="0"><br>
-        <label>X-Large Add. Charge</label>
-        <input type="text" name="x_large_add_charge"><br>
-        <label>XX-Large Number</label>
-        <input type="number" name="xx_large_number" min="0"><br>
-        <label>XX_Large Add. Charge</label>
-        <input type="text" name="xx_large_add_charge"><br>
+            <div class="row">
+                <div class="col">
+                    <label>Base Color</label>
+                    <input type="text" name="base_color"><br>
+                </div>
+                <div class="col">
+                    <label>Vendor</label>
+                    <input type="text" name="vendor"><br>
+                </div>
+            </div> <br>
 
-        <label>Per Unit Base Price</label>
-        <input type="text" name="per_unit_base_price"><br>
-        <label>Color Charge</label>
-        <input type="text" name="color_charge"><br>
-        <label>Total Blank Price</label>
-        <input type="text" name="total_blank_price"><br>
-        <label>Location Size</label>
-        <input type="text" name="location_size"><br>
-        <label># Colors Charge</label>
-        <input type="text" name="num_colors_charge"><br>
-        <label>Color List</label>
-        <input type="text" name="color_list"><br>
-        <label>Total</label>
-        <input type="text" name="total"><br>
+            <div class="row">
+                <div class="col">
+                    <label>X-Small Number</label>
+                    <input type="number" name="x_small_number" min="0"><br>
+                    <label>Small Number</label>
+                    <input type="number" name="small_number" min="0"><br>
+                    <label>Medium Number</label>
+                    <input type="number" name="medium_number" min="0"><br>
+                    <label>Large Number</label>
+                    <input type="number" name="large_number" min="0"><br>
+                    <label>X-Large Number</label>
+                    <input type="number" name="x_large_number" min="0"><br>
+                    <label>XX-Large Number</label>
+                    <input type="number" name="xx_large_number" min="0"><br>
+                    
+                </div>
+                <div class="col">
+                    <label>X-Small Add. Charge</label>
+                    <input type="text" name="x_small_add_charge"><br>
+                    <label>Small Add. Charge</label>
+                    <input type="text" name="small_add_charge"><br>
+                    <label>Medium Add. Charge</label>
+                    <input type="text" name="medium_add_charge"><br>
+                    <label>Large Add. Charge</label>
+                    <input type="text" name="large_add_charge"><br>
+                    <label>X-Large Add. Charge</label>
+                    <input type="text" name="x_large_add_charge"><br>
+                    <label>XX_Large Add. Charge</label>
+                    <input type="text" name="xx_large_add_charge"><br>
+                </div>
+            </div> <br>
 
-        <button type="submit">Add Print Order</button>
+            <div class="row">
+                <div class="col">
+                    <label>Per Unit Base Price</label>
+                    <input type="text" name="per_unit_base_price"><br>
+                </div>
+                <div class="col">
+                    <label>Color Charge</label>
+                    <input type="text" name="color_charge"><br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Total Blank Price</label>
+                    <input type="text" name="total_blank_price"><br>
+                </div>
+            </div> <br>
+
+            <div class="row">
+                <div class="col">
+                    <label>Location Size</label>
+                    <input type="text" name="location_size"><br>
+                </div>
+                <div class="col">
+                    <label># Colors Charge</label>
+                    <input type="text" name="num_colors_charge"><br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Color List</label>
+                    <input type="text" name="color_list"><br>
+                </div>
+                <div class="col">
+                    <label>Total</label>
+                    <input type="text" name="total"><br>
+                </div>
+            </div> <br>
+
+            <br><button type="submit">Add Print Order</button>
+        </div>
     </form>
 </body>
 </html>
