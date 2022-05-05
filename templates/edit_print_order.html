@@ -1,90 +1,147 @@
 <!DOCTYPE html>
+
+{% include "header.html" %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Edit Print Order</title>
 </head>
 <body>
+
+    <h1 style="margin:60px 0px 10px 30px">Edit Print Order</h1>
+
      <form action="{{ url_for('edit_print_order') }}" method="POST">
 
         <input hidden="hidden" name="id" value="{{print_order.id}}">
 
-        <p>Customer: {{print_order.customer}}</p>
-        <input name="customer" type="text" value = {{print_order.customer}}>
-        <p>Contact: {{print_order.contact}}</p>
-        <input name="contact" type="text" value = {{print_order.contact}}>
-        <p>Phone: {{print_order.phone}}</p>
-        <input name="phone" type="text" value = {{print_order.phone}}>
-        <p>Email: {{print_order.email}}</p>
-        <input name="email" type="text" value = {{print_order.email}}>
-        <p>Setup_Charge: {{print_order.setup_charge}}</p>
-        <input name="setup_charge" type="text" value = {{print_order.setup_charge}}>
-        <p>Deposit: {{print_order.deposit}}</p>
-        <input name="deposit" type="text" value = {{print_order.deposit}}>
-        <p>Discount: {{print_order.discount}}</p>
-        <input name="discount" type="text" value = {{print_order.discount}}>
-        <p>Total Cost: {{print_order.total_cost}}</p>
-        <input name="total_cost" type="text" value = {{print_order.total_cost}}>
-        <p>Order Date: {{print_order.order_date}}</p>
-        <input name="order_date" type="date" value = {{print_order.order_date}}>
-        <p>Art/Slide Date: {{print_order.art_slide_date}}</p>
-        <input name="art_slide_date" type="date" value = {{print_order.art_slide_date}}>
-        <p>Due Date: {{print_order.due_date}}</p>
-        <input name="due_date" type="date" value = {{print_order.due_date}}>
-        <p>Apparel Date: {{print_order.apparel_date}}</p>
-        <input name="apparel_date" type="date" value = {{print_order.apparel_date}}>
-        <p>Art/Film Date: {{print_order.art_film_date}}</p>
-        <input name="art_film_date" type="date" value = {{print_order.art_film_date}}>
-        <p>Print Date: {{print_order.print_date}}</p>
-        <input name="print_date" type="date" value = {{print_order.print_date}}>
-        <p>Date Delivered: {{print_order.date_delivered}}</p>
-        <input name="date_delivered" type="date" value = {{print_order.date_delivered}}>
-        <p>Base Color: {{print_order.base_color}}</p>
-        <input name="base_color" type="text" value = {{print_order.base_color}}>
-        <p>Vendor: {{print_order.vendor}}</p>
-        <input name="vendor" type="text" value = {{print_order.vendor}}>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p>Customer: {{print_order.customer}}</p>
+                    <input name="customer" type="text" value = {{print_order.customer}}>
+                    <p>Contact: {{print_order.contact}}</p>
+                    <input name="contact" type="text" value = {{print_order.contact}}>
+                    <p>Phone: {{print_order.phone}}</p>
+                    <input name="phone" type="text" value = {{print_order.phone}}>
+                    <p>Email: {{print_order.email}}</p>
+                    <input name="email" type="text" value = {{print_order.email}}>
+                    <p>Setup_Charge: {{print_order.setup_charge}}</p>
+                    <input name="setup_charge" type="text" value = {{print_order.setup_charge}}>
+                    <p>Deposit: {{print_order.deposit}}</p>
+                    <input name="deposit" type="text" value = {{print_order.deposit}}>
+                    <p>Discount: {{print_order.discount}}</p>
+                    <input name="discount" type="text" value = {{print_order.discount}}>
+                    <p>Total Cost: {{print_order.total_cost}}</p>
+                    <input name="total_cost" type="text" value = {{print_order.total_cost}}>
+                </div>
+                <div class="col">
+                    <p>Order Date: {{print_order.order_date}}</p>
+                    <input name="order_date" type="date" value = {{print_order.order_date}}>
+                    <p>Art/Slide Date: {{print_order.art_slide_date}}</p>
+                    <input name="art_slide_date" type="date" value = {{print_order.art_slide_date}}>
+                    <p>Due Date: {{print_order.due_date}}</p>
+                    <input name="due_date" type="date" value = {{print_order.due_date}}>
+                    <p>Apparel Date: {{print_order.apparel_date}}</p>
+                    <input name="apparel_date" type="date" value = {{print_order.apparel_date}}>
+                    <p>Art/Film Date: {{print_order.art_film_date}}</p>
+                    <input name="art_film_date" type="date" value = {{print_order.art_film_date}}>
+                    <p>Print Date: {{print_order.print_date}}</p>
+                    <input name="print_date" type="date" value = {{print_order.print_date}}>
+                    <p>Date Delivered: {{print_order.date_delivered}}</p>
+                    <input name="date_delivered" type="date" value = {{print_order.date_delivered}}>
+                </div>
+            </div> <br>
 
-        <p>X-Small Number: {{print_order.x_small_number}}</p>
-        <input name="x_small_number" type="number" min="0" value = {{print_order.x_small_number}}>
-        <p>X-Small Add. Charge: {{print_order.x_small_add_charge}}</p>
-        <input name="x_small_add_charge" type="text" value = {{print_order.x_small_add_charge}}>
-        <p>Small Number: {{print_order.small_number}}</p>
-        <input name="small_number" type="number" min="0" value = {{print_order.small_number}}>
-        <p>Small Add. Charge: {{print_order.small_add_charge}}</p>
-        <input name="small_add_charge" type="text" value = {{print_order.small_add_charge}}>
-        <p>Medium Number: {{print_order.medium_number}}</p>
-        <input name="medium_number" type="number" min="0" value = {{print_order.medium_number}}>
-        <p>Medium Add. Charge: {{print_order.medium_add_charge}}</p>
-        <input name="medium_add_charge" type="text" value = {{print_order.medium_add_charge}}>
-        <p>Large Number: {{print_order.large_number}}</p>
-        <input name="large_number" type="number" min="0" value = {{print_order.large_number}}>
-        <p>Large Add. Charge: {{print_order.large_add_charge}}</p>
-        <input name="large_add_charge" type="text" value = {{print_order.large_add_charge}}>
-        <p>X-Large Number: {{print_order.x_large_number}}</p>
-        <input name="x_large_number" type="number" min="0" value = {{print_order.x_large_number}}>
-        <p>X-Large Add. Charge: {{print_order.x_large_add_charge}}</p>
-        <input name="x_large_add_charge" type="text" value = {{print_order.x_large_add_charge}}>
-        <p>XX-Large Number: {{print_order.xx_large_number}}</p>
-        <input name="xx_large_number" type="number" min="0" value = {{print_order.xx_large_number}}>
-        <p>XX-Large Add. Charge: {{print_order.xx_large_add_charge}}</p>
-        <input name="xx_large_add_charge" type="text" value = {{print_order.xx_large_add_charge}}>
+            <div class="row">
+                <div class="col">
+                    <p>Base Color: {{print_order.base_color}}</p>
+                    <input name="base_color" type="text" value = {{print_order.base_color}}>
+                   
+                </div>
+                <div class="col">
+                    <p>Vendor: {{print_order.vendor}}</p>
+                    <input name="vendor" type="text" value = {{print_order.vendor}}>
+                </div>
+            </div> <br>
 
-        <p>Per Unit Base Price: {{print_order.per_unit_base_price}}</p>
-        <input name="per_unit_base_price" type="text" value = {{print_order.per_unit_base_price}}>
-        <p>Color Charge: {{print_order.color_charge}}</p>
-        <input name="color_charge" type="text" value = {{print_order.color_charge}}>
-        <p>Total Blank Price: {{print_order.total_blank_price}}</p>
-        <input name="total_blank_price" type="text" value = {{print_order.total_blank_price}}>
-        <p>Location Size: {{print_order.location_size}}</p>
-        <input name="location_size" type="text" value = {{print_order.location_size}}>
-        <p># Colors Charge: {{print_order.num_colors_charge}}</p>
-        <input name="num_colors_charge" type="text" value = {{print_order.num_colors_charge}}>
-        <p>Color List: {{print_order.color_list}}</p>
-        <input name="color_list" type="text" value = {{print_order.color_list}}>
-        <p>Total: {{print_order.total}}</p>
-        <input name="total" type="text" value = {{print_order.total}}>
-        <br>
-        <button type="submit">Done</button>
+            <div class="row">
+                <div class="col">
+                    <p>X-Small Number: {{print_order.x_small_number}}</p>
+                    <input name="x_small_number" type="number" min="0" value = {{print_order.x_small_number}}>
+                    <p>Small Number: {{print_order.small_number}}</p>
+                    <input name="small_number" type="number" min="0" value = {{print_order.small_number}}>
+                    <p>Medium Number: {{print_order.medium_number}}</p>
+                    <input name="medium_number" type="number" min="0" value = {{print_order.medium_number}}>
+                    <p>Large Number: {{print_order.large_number}}</p>
+                    <input name="large_number" type="number" min="0" value = {{print_order.large_number}}>
+                    <p>X-Large Number: {{print_order.x_large_number}}</p>
+                    <input name="x_large_number" type="number" min="0" value = {{print_order.x_large_number}}>
+                    <p>XX-Large Number: {{print_order.xx_large_number}}</p>
+                    <input name="xx_large_number" type="number" min="0" value = {{print_order.xx_large_number}}>
+                </div>
+
+                <div class="col">
+                    <p>X-Small Add. Charge: {{print_order.x_small_add_charge}}</p>
+                    <input name="x_small_add_charge" type="text" value = {{print_order.x_small_add_charge}}>
+                    <p>Small Add. Charge: {{print_order.small_add_charge}}</p>
+                    <input name="small_add_charge" type="text" value = {{print_order.small_add_charge}}>
+                    <p>Medium Add. Charge: {{print_order.medium_add_charge}}</p>
+                    <input name="medium_add_charge" type="text" value = {{print_order.medium_add_charge}}>
+                    <p>Large Add. Charge: {{print_order.large_add_charge}}</p>
+                    <input name="large_add_charge" type="text" value = {{print_order.large_add_charge}}>
+                    <p>X-Large Add. Charge: {{print_order.x_large_add_charge}}</p>
+                    <input name="x_large_add_charge" type="text" value = {{print_order.x_large_add_charge}}>
+                    <p>XX-Large Add. Charge: {{print_order.xx_large_add_charge}}</p>
+                    <input name="xx_large_add_charge" type="text" value = {{print_order.xx_large_add_charge}}>
+                </div>
+            </div> <br>
+            
+            
+            
+            <div class="row">
+                <div class="col">
+                    <p>Per Unit Base Price: {{print_order.per_unit_base_price}}</p>
+                    <input name="per_unit_base_price" type="text" value = {{print_order.per_unit_base_price}}>
+                </div>
+                <div class="col">
+                    <p>Color Charge: {{print_order.color_charge}}</p>
+            <input name="color_charge" type="text" value = {{print_order.color_charge}}>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>Total Blank Price: {{print_order.total_blank_price}}</p>
+                    <input name="total_blank_price" type="text" value = {{print_order.total_blank_price}}>
+                </div>
+            </div> <br>
+
+            <div class="row">
+                <div class="col">
+                    <p>Location Size: {{print_order.location_size}}</p>
+                    <input name="location_size" type="text" value = {{print_order.location_size}}>
+                </div>
+                <div class="col">
+                    <p># Colors Charge: {{print_order.num_colors_charge}}</p>
+                    <input name="num_colors_charge" type="text" value = {{print_order.num_colors_charge}}>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>Color List: {{print_order.color_list}}</p>
+                    <input name="color_list" type="text" value = {{print_order.color_list}}>
+                </div>
+                <div class="col">
+                    <p>Total: {{print_order.total}}</p>
+                    <input name="total" type="text" value = {{print_order.total}}>
+                    <br>
+                </div>
+            </div> <br>
+            <br><button type="submit">Done</button>
+        </div>
+
     </form>
 </body>
 </html>
