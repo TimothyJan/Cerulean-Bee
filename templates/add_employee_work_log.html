@@ -1,31 +1,61 @@
 <!DOCTYPE html>
+
+{% include "header.html" %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add Employee Work Log</title>
 </head>
 <body>
-    <form action="{{ url_for('add_employee_work_log') }}" method="POST">
-        <label>Employee</label>
-        <input type="text" name="employee"><br>
-        <label>Phone</label>
-        <input type="text" name="phone"><br>
-        <label>Full/Part Time</label>
-        <input type="text" name="full_part_time"><br>
-        <label>Date</label>
-        <input type="date" name="date"><br>
-        <label>Start Time</label>
-        <input type="time" name="start_time"><br>
-        <label>Project</label>
-        <input type="text" name="project"><br>
-        <label>Art Item</label>
-        <input type="text" name="art_item"><br>
-        <label>Task</label>
-        <input type="text" name="task"><br>
-        <label>End Time</label>
-        <input type="time" name="end_time"><br>
 
-        <button type="submit">Add Employee Work Log</button>
+    <h1 style="margin:60px 0px 10px 30px">Create New Employee Work Log</h1>
+
+    <form action="{{ url_for('add_employee_work_log') }}" method="POST">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label>Employee</label>
+                    <input type="text" name="employee"><br>
+                </div>
+                <div class="col">
+                    <label>Phone</label>
+                    <input type="text" name="phone"><br>
+                </div>
+                <div class="col">
+                    <label>Full/Part Time</label>
+                    <input type="text" name="full_part_time"><br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Date</label>
+                    <input type="date" name="date"><br>
+                </div>
+                <div class="col">
+                    <label>Start Time</label>
+                    <input type="time" name="start_time"><br>
+                </div>
+                <div class="col">
+                    <label>Project</label>
+                    <input type="text" name="project"><br>
+                </div>
+                <div class="col">
+                    <label>Art Item</label>
+                    <input type="text" name="art_item"><br>
+                </div>
+                <div class="col">
+                    <label>Task</label>
+                    <input type="text" name="task"><br>
+                </div>
+                <div class="col">
+                    <label>End Time</label>
+                    <input type="time" name="end_time"><br>
+                </div>
+            </div>
+            <br><button type="submit">Add Employee Work Log</button>
+        </div>
     </form>
 </body>
 </html>
