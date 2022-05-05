@@ -3,31 +3,63 @@
 {% include "header.html" %}
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cerulean Bee</title>
-</head>
-<body>
-<h1>Artwork Orders</h1>
-    {% if all_artwork_orders == [] %}
-    <p>Artwork Orders are empty</p>
-    {% endif%}
-    <ul>
-        {% for artwork_order in all_artwork_orders %}
-        <li>
-            id: {{ artwork_order.id }} - customer: {{artwork_order.customer}} - contact:  {{ artwork_order.contact }}<br>
-            phone: {{ artwork_order.phone }} - discount: {{ artwork_order.discount }} - total price: {{ artwork_order.total_price }}<br>
-            order date: {{ artwork_order.order_date }} - date approved: {{ artwork_order.date_approved }} - scheduled print date: {{ artwork_order.scheduled_print_date }}<br>
-            apparel item: {{ artwork_order.apparel_item }} - base color: {{ artwork_order.base_color }} - max colors: {{ artwork_order.maximum_colors }}
-            event: {{ artwork_order.event }} - theme: {{ artwork_order.theme }}
-            <a href="{{ url_for('edit_artwork_order', id=artwork_order.id) }}">Edit</a>
-            <a href="{{ url_for('delete_artwork_order', id=artwork_order.id) }}">Delete</a>
-        </li>
-        {% endfor %}
-    </ul>
-    
-<a href="{{ url_for('add_artwork_order') }}">Add New Artwork Order</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cerulean Bee</title>
+    </head>
+
+    <body>
+        <h1 style="margin:60px 0px 10px 30px">Artwork Orders</h1>
+
+        {% if all_artwork_orders == [] %}
+        <p>Artwork Orders are empty</p>
+        {% endif%}
+        
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                        <th>Customer ID</th>
+                        <th>Customer</th>
+                        <th>Contact</th>
+                        <th>Phone Number</th>
+                        <th>Discount</th>
+                        <th>Total Price</th>
+                        <th>Order Date</th>
+                        <th>Date Approved</th>
+                        <th>Scheduled Print Date</th>
+                        <th>Apparel/Item</th>
+                        <th>Base Color</th>
+                        <th>Max Colors</th>
+                        <th>Event</th>
+                        <th>Theme</th>
+                        <th><a href="{{ url_for('add_artwork_order') }}" class="btn btn-success" role="button">Add New Artwork Order</a></th>
+                </thead>
+
+                <tbody>
+                    {% for artwork_order in all_artwork_orders %}
+                    <tr>
+                        <td>{{ artwork_order.id }}</td>
+                        <td>{{artwork_order.customer}}</td>
+                        <td>{{ artwork_order.contact }}</td>
+                        <td>{{ artwork_order.phone }}</td>
+                        <td>{{ artwork_order.discount }}</td>
+                        <td>{{ artwork_order.total_price }}</td>
+                        <td>{{ artwork_order.order_date }}</td>
+                        <td>{{ artwork_order.date_approved }}</td>
+                        <td>{{ artwork_order.scheduled_print_date }}</td>
+                        <td>{{ artwork_order.apparel_item }}</td>
+                        <td>{{ artwork_order.base_color }}</td>
+                        <td>{{ artwork_order.maximum_colors }}</td>
+                        <td>{{ artwork_order.event }}</td>
+                        <td>{{ artwork_order.theme }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_artwork_order', id=artwork_order.id) }}" class="btn btn-warning" role="button">Edit</a>
+                            <a href="{{ url_for('delete_artwork_order', id=artwork_order.id) }}" class="btn btn-danger" role="button">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </body>
 </html>
 
 {% include "footer.html" %}
